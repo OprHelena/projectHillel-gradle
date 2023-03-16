@@ -25,7 +25,7 @@ public class FileLogger implements Logger {
     }
 
     private void log(LoggingLevel level, String message) throws FileMaxSizeReachedException {
-        if (level.ordinal() > configuration.getLevel().ordinal()) {
+        if (level == LoggingLevel.DEBUG && configuration.getLevel() !=LoggingLevel.DEBUG){
             return;
         }
 
