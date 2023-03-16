@@ -15,6 +15,7 @@ public class FileLoggerConfigurationLoaderTest {
             logger.info("Info message");
         } catch (FileMaxSizeReachedException e) {
             System.err.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
 
