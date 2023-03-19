@@ -1,5 +1,6 @@
 package ua.ithillet.lesson13;
 
+import java.util.Arrays;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
@@ -43,5 +44,9 @@ public class NewArrayInitializer {
             array[i] = value;
         }
         return array;
+    }
+
+    public boolean isContainsValue(double[] values, double target) {
+        return Arrays.stream(values).anyMatch(i -> i==target);
     }
 }
