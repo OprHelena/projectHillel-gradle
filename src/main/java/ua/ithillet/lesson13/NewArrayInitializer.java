@@ -46,7 +46,7 @@ public class NewArrayInitializer {
         return array;
     }
 
-    public boolean isContainsValue(double[] values, double target) {
-        return Arrays.stream(values).anyMatch(i -> i==target);
+    public boolean isContainsValue(double[] array, double target) {
+        return Arrays.stream(array).anyMatch(i -> i==target);
     }
 }
