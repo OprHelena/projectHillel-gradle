@@ -15,10 +15,7 @@ public class WorkWithProduct {
         return productList.stream()
                 .filter(product -> product.getCategory().equals(category))
                 .filter(product -> product.getDiscount() == true)
-                .map(product -> {
-                    product.setPrice(product.getPrice() * 0.9);
-                    return product;
-                }).toList();
+                .peek(product -> product.setPrice(product.getPrice() * 0.9)).toList();
     }
 
     public Product getCheapestProductByCategory(List<Product> products, String category) {
