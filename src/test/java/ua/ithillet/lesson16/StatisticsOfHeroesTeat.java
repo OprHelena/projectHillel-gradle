@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 public class StatisticsOfHeroesTeat {
 
     String path = "src/main/resources/list of heroes.csv";
-    List<Heroes> heroList = StatisticsOfHeroes.readHeroCsv(path);
+    List<Hero> heroList = StatisticsOfHeroes.readHeroCsv(path);
 
     @Test
     public void checkGetAverageHeightMethod() {

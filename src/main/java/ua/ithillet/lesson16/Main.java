@@ -5,7 +5,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         String path = "src/main/resources/list of heroes.csv";
-        List<Heroes> heroList = StatisticsOfHeroes.readHeroCsv(path);
+        List<Hero> heroList = StatisticsOfHeroes.readHeroCsv(path);
         System.out.println("The average height of heroes (excluding height <= 0): " + StatisticsOfHeroes.getAverageHeight(heroList));
         System.out.println("The name of the tallest hero: " + StatisticsOfHeroes.getTallestHeroName(heroList));
         System.out.println("The name of the heaviest hero: " + StatisticsOfHeroes.getHeaviestHeroName(heroList));

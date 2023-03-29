@@ -1,6 +1,6 @@
 package ua.ithillet.lesson16;
 
-public class Heroes {
+public class Hero {
     private int id;
     private String name;
     private String gender;
@@ -13,8 +13,8 @@ public class Heroes {
     private String group;
     private int weight;
 
-    public Heroes(int id, String name, String gender, String eyeColor, String race, String hairColor,
-                  double height, String publisher, String skinColor, String group, int weight) {
+    public Hero(int id, String name, String gender, String eyeColor, String race, String hairColor,
+                double height, String publisher, String skinColor, String group, int weight) {
         this.id = id;
         this.name = name;
         this.gender = gender;
