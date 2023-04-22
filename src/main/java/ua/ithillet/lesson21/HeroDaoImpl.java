@@ -3,6 +3,7 @@ package ua.ithillet.lesson21;
 import lombok.RequiredArgsConstructor;
 
 import javax.sql.DataSource;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -51,13 +52,22 @@ public class HeroDaoImpl implements HeroDao {
 
     @Override
     public void create(Hero hero) {
-        String temp = "'" + hero.getName() + "', " + "'" + hero.getGender() + "', " + "'" + hero.getEyeColor() + "', " + "'" + hero.getRace() + "', "
-                + "'" + hero.getHairColor() + "', " + hero.getHeight() + ", " + hero.getPublisherId() + ", " + "'" + hero.getSkinColor() + "', " + "'" +
-                hero.getAlignment() + "', " + hero.getWeight();
-        var sql = "insert into heroes_adv (name, gender, eye_color, race, hair_color, height, publisher_id, skin_color, alignment, weight) values (" + temp + ")";
-        try (var connection = dataSource.getConnection();
-             var statement = connection.createStatement()) {
-            statement.execute(sql);
+
+        try (var connection = dataSource.getConnection();) {
+            String sql = "insert into heroes_adv (name, gender, eye_color, race, hair_color, height, publisher_id, skin_color, " +
+                    "alignment, weight) values (?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement prpst = connection.prepareStatement(sql);
+            prpst.setString(1, hero.getName());
+            prpst.setString(2, hero.getGender());
+            prpst.setString(3, hero.getEyeColor());
+            prpst.setString(4, hero.getRace());
+            prpst.setString(5, hero.getHairColor());
+            prpst.setDouble(6, hero.getHeight());
+            prpst.setLong(7, hero.getPublisherId());
+            prpst.setString(8, hero.getSkinColor());
+            prpst.setString(9, hero.getAlignment());
+            prpst.setInt(10, hero.getWeight());
+            prpst.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
