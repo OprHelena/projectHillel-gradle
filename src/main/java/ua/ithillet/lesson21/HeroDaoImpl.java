@@ -54,8 +54,7 @@ public class HeroDaoImpl implements HeroDao {
     public void create(Hero hero) {
 
         try (var connection = dataSource.getConnection();) {
-            String sql = "insert into heroes_adv (name, gender, eye_color, race, hair_color, height, publisher_id, skin_color, " +
-                    "alignment, weight) values (?,?,?,?,?,?,?,?,?,?)";
+            String sql = "insert into heroes_adv (name, gender, eye_color, race, hair_color, height, publisher_id, skin_color, alignment, weight) values (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement prpst = connection.prepareStatement(sql);
             prpst.setString(1, hero.getName());
             prpst.setString(2, hero.getGender());
