@@ -17,7 +17,7 @@ public class HeroServer {
         PGSimpleDataSource ds = new PGSimpleDataSource();
         ds.setDatabaseName("heroes_adv");
         ds.setUser(PropertiesController.getEnvPropertyValue("user.name"));
-        ds.setPassword("password");
+        ds.setPassword("user.password");
         return ds;
     }
 
